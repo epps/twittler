@@ -8,30 +8,31 @@ $(document).ready(function(){
   var index = streams.home.length -1;
   while(index >= 0){
     var tweet = streams.home[index];
-    var $tweet = $('<div class="tweet"><a href="#" data-user="' + tweet.user + '">@' + tweet.user + '</a>: ' + tweet.message + '</div>');
-    $tweet.appendTo('.container');
-    if (tweet.user === 'shawndrost') {
-      $tweet.appendTo('.shawndrost');
-    }
+    var $tweet = $('<div class="tweet"><a href="#" class="' + tweet.user + '">@' + tweet.user + '</a>: ' + tweet.message + '</div>');
+    $tweet.appendTo('.tweet_container');
     index -= 1;
   }
 
-  // $('button').on('click', function() {
-  //     nextTweet = streams.home[tweetCounter];
-  //     $tweet.text('@' + nextTweet.user + ': ' + nextTweet.message);
-  //     $('.tweet').first().before($tweet);
-  //     tweetCounter++;
-  // });
-
   $('button').on('click', function() {
     nextTweet = streams.home[tweetCounter];
-    $('.tweet').first().before('<div class="tweet"><a href="#" data-user="' + tweet.user + '">@' + nextTweet.user + '</a>: ' + nextTweet.message + '</div>');
+    $('.tweet').first().before('<div class="tweet"><a href="#" class="' + nextTweet.user + '">@' + nextTweet.user + '</a>: ' + nextTweet.message + '</div>');
     tweetCounter++;
   });
 
-  $('.container').on('click', 'a', function(e) { // in order to have this click event work for dynamically generated content, you need to target the parent container
-    // e.preventDefault();
-    console.log($('.tweet').length);
-  })
+  $('.tweet_container').on('click', 'a', function(e) { // in order to have this click event work for dynamically generated content, you need to target the parent tweet_container
+    e.preventDefault();
+
+    var user = $(this).attr('class');
+    // $('a').not('.' + user).parent().remove(); Works for only non-dynamically generated elements
+    
+    $('.tweet_container').find('a').not('.' + user).parent().fadeToggle(550, "swing"); // had to begin my selection that the container level so that the behavior would apply to dynamically generated content, too
+
+    // $('button').off().on('click', function(){
+    //   var nextUsrTweet = streams.users[user][tweetCounter];
+    //   $('.tweet').first().before('<div class="tweet"><a href="#" class="' + nextUsrTweet.user + '">@' + nextUsrTweet.user + '</a>: ' + nextUsrTweet.message + '</div>');
+    //   tweetCounter++;
+    // });
+
+  });
 
 });

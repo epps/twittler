@@ -54,7 +54,7 @@ var generateRandomTweet = function(){
   addTweet(tweet); // calls addTweet and passes it tweet obj
 };
 
-for(var i = 0; i < 10; i++){
+for(var i = 0; i < 20; i++){
   generateRandomTweet();
 } // for loop calls generateRandomTweet() ten times to generate the initial batch of tweets shown on the page
 

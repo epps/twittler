@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
     <script src="myscript.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   </head>
   <body>
-    <button>Show next tweet</button>
-    <div><hr></div>
-    <div class="container">
-      <div class="shawndrost">
-      </div>
-      <div><hr></div>
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <a href="#" class="navbar-brand"><i class="fa fa-twitter"></i> Twittler</a>
+        <ul class="nav navbar-right">
+          <li><button type="button" class="btn btn-default navbar-btn">Show next tweet</button></li>
+        </ul>
+      </div> <!-- container-fluid -->
+    </nav>
+    <div class="tweet_container">
     </div>
   </body>
 </html>
