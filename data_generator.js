@@ -8,9 +8,13 @@ window.streams = {};
 streams.home = [];
 streams.users = {};
 streams.users.shawndrost = [];
+streams.users.shawndrost.bio = "Shawn is a corrupt finance banker by day, and a dark-web kingpin by night. Guess which activity carries a greater risk.";
 streams.users.sharksforcheap = [];
+streams.users.sharksforcheap.bio = "Sam 'Sharks For Cheap' Jackson loves B-movie horror films featuring highly intelligent sharks.";
 streams.users.mracus = [];
+streams.users.mracus.bio = "Marcus Racus often wonders why his parents chose his first name given its similarity with his last.";
 streams.users.douglascalhoun = [];
+streams.users.douglascalhoun.bio = "Douglas Calhoun sells used cars.";
 window.users = Object.keys(streams.users);
 
 // utility function for adding tweets to our data structures
@@ -54,13 +58,13 @@ var generateRandomTweet = function(){
   addTweet(tweet); // calls addTweet and passes it tweet obj
 };
 
-for(var i = 0; i < 20; i++){
+for(var i = 0; i < 10; i++){
   generateRandomTweet();
 } // for loop calls generateRandomTweet() ten times to generate the initial batch of tweets shown on the page
 
 var scheduleNextTweet = function(){
   generateRandomTweet();
-  setTimeout(scheduleNextTweet, Math.random() * 1500);
+  setTimeout(scheduleNextTweet, Math.random() * 2000);
 };
 scheduleNextTweet(); 
 
